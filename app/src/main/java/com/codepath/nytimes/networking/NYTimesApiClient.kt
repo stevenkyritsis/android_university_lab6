@@ -21,6 +21,13 @@ import retrofit2.converter.gson.GsonConverterFactory
  * https://developer.nytimes.com/get-started to create your own developer account,
  * after copy and paste the API key under your Account -> Apps -> <Your App> -> API Keys
 </Your> */
+
+// TODO: Replace the below API key with your own generated key
+private const val API_KEY = "<YOUR-API-KEY-GOES-HERE>"
+private const val API_FILTER = "headline, web_url, snippet, pub_date, word_count, print_page, print_section, section_name"
+private const val BEGIN_DATE = "20100101"
+private const val SORT_BY = "relevance"
+
 class NYTimesApiClient {
     private val nyTimesService: NYTimesService
     fun getBestSellersList(booksListResponse: CallbackResponse<List<BestSellerBook>>) {
@@ -86,14 +93,6 @@ class NYTimesApiClient {
                 articlesListResponse.onFailure(t)
             }
         })
-    }
-
-    companion object {
-        // TODO: Replace the below API key with your own generated key
-        private const val API_KEY = "<YOUR-API-KEY-GOES-HERE>"
-        private const val API_FILTER = "headline, web_url, snippet, pub_date, word_count, print_page, print_section, section_name"
-        private const val BEGIN_DATE = "20100101"
-        private const val SORT_BY = "relevance"
     }
 
     init {
